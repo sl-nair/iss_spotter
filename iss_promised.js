@@ -6,7 +6,7 @@ const fetchMyIP = function() {
 
 const fetchCoordByIP = (body) => {
   const ip = JSON.parse(body).ip;
-  return request(`http://ipwho.is/${ip}`)
+  return request(`http://ipwho..is/${ip}`)
 };
 
 const fetchISSFlyOverTimes = (body) => {
