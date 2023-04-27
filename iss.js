@@ -18,4 +18,22 @@ const fetchMyIP = function(callback) {
 
   });
 };
-module.exports = { fetchMyIP };
+
+const fetchCoordByIP = function(ip, callback) {
+  request(`http://ipwho.is/${ip}`, (error, response, body) => {
+    if (error) {
+      callback(error, null);
+      return;
+    }
+    let ipGeolocation = JSON.parse(body);
+    if (!ipGeolocation.success) {
+      const message = `Success status was ${ipGeolocation.success}. Server message says: ${ipGeolocation.message} when fetching for IP ${ipGeolocation.ip}`;
+      callback(Error(message), null);
+      return;
+    }
+    const { latitude, longitude } = ipGeolocation;
+    callback(null, {latitude, longitude});
+  });
+};
+
+module.exports = { fetchMyIP, fetchCoordByIP };

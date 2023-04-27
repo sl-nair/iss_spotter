@@ -1,6 +1,6 @@
 //It will require and run our main fetch function.
 
-const { fetchMyIP } = require('./iss');
+const { fetchMyIP, fetchCoordByIP } = require('./iss');
 
 // fetchMyIP((error,ip) => {
 //   if (error) {
@@ -8,4 +8,13 @@ const { fetchMyIP } = require('./iss');
 //     return
 //   }
 //   console.log('it worked! Returned IP:', ip);
+// })
+
+// fetchCoordByIP("42", (error, data) => {
+//   if (error) {
+//     console.log("it didnt work :(", error);
+//     return
+//   };
+
+//   console.log('it worked! Returned IP Geolocation:', data);
 // })
